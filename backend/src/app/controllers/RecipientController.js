@@ -30,6 +30,20 @@ class RecipientController {
       return res.status(400).json({ error: 'Recipient not found' });
     }
 
+    const schema = Yup.object().shape({
+      name: Yup.string(),
+      street: Yup.string(),
+      house_number: Yup.number(),
+      complement: Yup.string(),
+      state: Yup.string(),
+      city: Yup.string(),
+      zip: Yup.string(),
+    });
+
+    if (!(await schema.isValid(req.body))) {
+      return res.status(400).json({ error: 'Validation failed' });
+    }
+
     await recipient.update(req.body);
 
     const updatedRecipient = await Recipient.findByPk(req.params.id);
