@@ -1,3 +1,5 @@
+import { Op } from 'sequelize';
+
 import Delivery from '../models/Delivery';
 import Deliveryman from '../models/Deliveryman';
 import File from '../models/File';
@@ -5,7 +7,7 @@ import Recipient from '../models/Recipient';
 
 class DeliverymanDeliveriesController {
   async index(req, res) {
-    const { page = 1 } = req.query;
+    const { page = 1, delivered = false } = req.query;
     const { id: deliveryman_id } = req.params;
 
     const deliveries = await Delivery.findAll({
@@ -34,7 +36,19 @@ class DeliverymanDeliveriesController {
       ],
     });
 
-    return res.json(deliveries);
+    if (delivered) {
+      const deliveredDeliveries = await deliveries.filter(
+        delivery => delivery.status === 'delivered'
+      );
+
+      return res.json(deliveredDeliveries);
+    }
+
+    const openDeliveries = await deliveries.filter(delivery => {
+      return delivery.status !== 'canceled' && delivery.status !== 'delivered';
+    });
+
+    return res.json(openDeliveries);
   }
 }
 
