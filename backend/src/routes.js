@@ -4,6 +4,7 @@ import multer from 'multer';
 import DeliveryController from './app/controllers/DeliveryController';
 import DeliverymanController from './app/controllers/DeliverymanController';
 import DeliverymanDeliveriesController from './app/controllers/DeliverymanDeliveriesController';
+import DeliveriesProblemsController from './app/controllers/DeliveriesProblemsController';
 import DeliveryProblemsController from './app/controllers/DeliveryProblemsController';
 import FileController from './app/controllers/FileController';
 import RecipientController from './app/controllers/RecipientController';
@@ -27,7 +28,9 @@ routes.put(
   DeliverymanDeliveriesController.update
 );
 
-routes.get('/deliveries/problems', DeliveryProblemsController.index);
+routes.get('/deliveries/problems', DeliveriesProblemsController.index);
+
+routes.get('/delivery/:id/problems', DeliveryProblemsController.index);
 
 routes.use(authMiddleware);
 
