@@ -1,10 +1,11 @@
 import * as Yup from 'yup';
 
-import Mail from '../../lib/Mail';
+import Queue from '../../lib/Queue';
 import Delivery from '../models/Delivery';
 import Deliveryman from '../models/Deliveryman';
 import File from '../models/File';
 import Recipient from '../models/Recipient';
+import NewDeliveryEmail from '../jobs/NewDeliveryEmail';
 
 class DeliveryController {
   async index(req, res) {
@@ -59,21 +60,10 @@ class DeliveryController {
 
     const recipient = await Recipient.findByPk(recipient_id);
 
-    await Mail.sendMail({
-      to: `${deliveryman.name} <${deliveryman.email}>`,
-      subject: 'Nova encomenda',
-      template: 'newDelivery',
-      context: {
-        deliveryman: deliveryman.name,
-        product,
-        recipient: recipient.name,
-        street: recipient.street,
-        house_number: recipient.house_number,
-        complement: recipient.complement || '-',
-        state: recipient.state,
-        city: recipient.city,
-        zip: recipient.zip,
-      },
+    await Queue.add(NewDeliveryEmail.key, {
+      deliveryman,
+      recipient,
+      product,
     });
 
     return res.json({
