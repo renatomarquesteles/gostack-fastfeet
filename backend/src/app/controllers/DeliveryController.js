@@ -12,9 +12,17 @@ class DeliveryController {
     const { page = 1 } = req.query;
 
     const deliveries = await Delivery.findAll({
-      attributes: ['id', 'product', 'status'],
+      attributes: [
+        'id',
+        'product',
+        'status',
+        'start_date',
+        'end_date',
+        'canceled_at',
+      ],
       limit: 10,
       offset: (page - 1) * 10,
+      order: [['id', 'DESC']],
       include: [
         {
           model: Recipient,
