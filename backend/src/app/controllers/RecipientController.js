@@ -8,7 +8,7 @@ class RecipientController {
       name: Yup.string().required(),
       street: Yup.string().required(),
       house_number: Yup.number().required(),
-      complement: Yup.string().required(),
+      complement: Yup.string(),
       state: Yup.string().required(),
       city: Yup.string().required(),
       zip: Yup.string().required(),
