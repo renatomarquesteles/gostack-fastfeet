@@ -48,6 +48,26 @@ class DeliveriesProblemsController {
 
     return res.json(deliveries);
   }
+
+  async delete(req, res) {
+    const { id } = req.params;
+
+    const problem = await DeliveriesProblems.findByPk(id);
+
+    if (!problem) {
+      return res.status(400).json({ error: 'Problem not found' });
+    }
+
+    const delivery = await Delivery.findByPk(problem.delivery_id);
+
+    if (!delivery) {
+      return res.status(400).json({ error: 'Delivery not found' });
+    }
+
+    await delivery.update({ canceled_at: new Date() });
+
+    return res.status(204).send();
+  }
 }
 
 export default new DeliveriesProblemsController();
