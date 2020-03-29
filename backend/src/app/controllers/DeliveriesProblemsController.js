@@ -1,3 +1,5 @@
+import CanceledDeliveryEmail from '../jobs/CanceledDeliveryEmail';
+import Queue from '../../lib/Queue';
 import DeliveriesProblems from '../models/DeliveriesProblems';
 import Delivery from '../models/Delivery';
 import Deliveryman from '../models/Deliveryman';
@@ -58,11 +60,27 @@ class DeliveriesProblemsController {
       return res.status(400).json({ error: 'Problem not found' });
     }
 
-    const delivery = await Delivery.findByPk(problem.delivery_id);
+    const delivery = await Delivery.findByPk(problem.delivery_id, {
+      include: [
+        {
+          model: Recipient,
+          as: 'recipient',
+        },
+        {
+          model: Deliveryman,
+          as: 'deliveryman',
+        },
+      ],
+    });
 
     if (!delivery) {
       return res.status(400).json({ error: 'Delivery not found' });
     }
+
+    await Queue.add(CanceledDeliveryEmail.key, {
+      delivery,
+      problem: problem.description,
+    });
 
     await delivery.update({ canceled_at: new Date() });
 
