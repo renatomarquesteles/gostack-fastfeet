@@ -31,6 +31,7 @@ routes.put(
 routes.get('/deliveries/problems', DeliveriesProblemsController.index);
 
 routes.get('/delivery/:id/problems', DeliveryProblemsController.index);
+routes.post('/delivery/:id/problems', DeliveryProblemsController.store);
 
 routes.use(authMiddleware);
 
