@@ -37,7 +37,7 @@ class DeliveryController {
         {
           model: File,
           as: 'signature',
-          attributes: ['id', 'name', 'url'],
+          attributes: ['id', 'name', 'path', 'url'],
         },
       ],
     });
@@ -120,7 +120,7 @@ class DeliveryController {
         {
           model: File,
           as: 'signature',
-          attributes: ['id', 'name', 'url'],
+          attributes: ['id', 'name', 'path', 'url'],
         },
       ],
     });

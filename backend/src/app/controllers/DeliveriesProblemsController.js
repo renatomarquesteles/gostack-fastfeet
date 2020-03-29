@@ -39,7 +39,7 @@ class DeliveriesProblemsController {
             {
               model: File,
               as: 'signature',
-              attributes: ['id', 'name', 'url'],
+              attributes: ['id', 'name', 'path', 'url'],
             },
           ],
         },

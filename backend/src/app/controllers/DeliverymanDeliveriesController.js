@@ -41,7 +41,7 @@ class DeliverymanDeliveriesController {
         {
           model: File,
           as: 'signature',
-          attributes: ['id', 'name', 'url'],
+          attributes: ['id', 'name', 'path', 'url'],
         },
       ],
     });
@@ -123,7 +123,7 @@ class DeliverymanDeliveriesController {
         {
           model: File,
           as: 'signature',
-          attributes: ['id', 'name', 'url'],
+          attributes: ['id', 'name', 'path', 'url'],
         },
       ],
     });
