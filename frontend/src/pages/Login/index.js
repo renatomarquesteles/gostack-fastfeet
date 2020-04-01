@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { Form } from '@unform/web';
+import * as Yup from 'yup';
 
 import logo from '~/assets/logo.png';
 import Input from '~/components/Input';
@@ -8,18 +9,33 @@ import { Container } from './styles';
 export default function Login() {
   const formRef = useRef(null);
 
-  function handleSubmit(data) {
-    let errors = {};
+  async function handleSubmit(data) {
+    try {
+      const schema = Yup.object().shape({
+        email: Yup.string()
+          .email('Digite um e-mail válido')
+          .required('O e-mail é obrigatório'),
+        password: Yup.string().required('A senha é obrigatória'),
+      });
 
-    if (data.email === '') {
-      errors.email = 'O e-mail é obrigatório';
+      await schema.validate(data, {
+        abortEarly: false,
+      });
+
+      formRef.current.setErrors({});
+
+      // await api.post('/', data);
+    } catch (err) {
+      if (err instanceof Yup.ValidationError) {
+        const errorMessages = {};
+
+        err.inner.forEach((error) => {
+          errorMessages[error.path] = error.message;
+        });
+
+        formRef.current.setErrors(errorMessages);
+      }
     }
-
-    if (data.password === '') {
-      errors.password = 'A senha é obrigatória';
-    }
-
-    formRef.current.setErrors(errors);
   }
 
   return (
