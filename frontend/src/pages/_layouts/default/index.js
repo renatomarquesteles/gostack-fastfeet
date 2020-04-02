@@ -20,23 +20,23 @@ export default function DefaultLayout({ children }) {
           <nav>
             <ul>
               <ListItem active>
-                <a href="#">ENCOMENDAS</a>
+                <a href="/deliveries">ENCOMENDAS</a>
               </ListItem>
               <ListItem>
-                <a href="#">ENTREGADORES</a>
+                <a href="/deliverymen">ENTREGADORES</a>
               </ListItem>
               <ListItem>
-                <a href="#">DESTINATÁRIOS</a>
+                <a href="/recipients">DESTINATÁRIOS</a>
               </ListItem>
               <ListItem>
-                <a href="#">PROBLEMAS</a>
+                <a href="/problems">PROBLEMAS</a>
               </ListItem>
             </ul>
           </nav>
 
           <Profile>
             <span>Admin FastFeet</span>
-            <a href="#">sair do sistema</a>
+            <a href="/logout">sair do sistema</a>
           </Profile>
         </HeaderContent>
       </Header>
