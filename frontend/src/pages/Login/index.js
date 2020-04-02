@@ -1,9 +1,11 @@
 import React, { useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { FiLoader } from 'react-icons/fi';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
 
 import logo from '~/assets/logo.png';
+import { DefaultButton } from '~/components/Buttons/styles';
 import Input from '~/components/Input';
 import { signInRequest } from '~/store/modules/auth/actions';
 import { Container } from './styles';
@@ -11,6 +13,7 @@ import { Container } from './styles';
 export default function Login() {
   const formRef = useRef(null);
   const dispatch = useDispatch();
+  const loading = useSelector((state) => state.auth.loading);
 
   async function handleSubmit({ email, password }) {
     try {
@@ -63,7 +66,16 @@ export default function Login() {
           type="password"
           placeholder="********"
         />
-        <button type="submit">Entrar no sistema</button>
+        <DefaultButton loading={loading} type="submit">
+          {loading ? (
+            <>
+              <FiLoader size={20} color="#fff" />
+              Carregando...
+            </>
+          ) : (
+            'Entrar no sistema'
+          )}
+        </DefaultButton>
       </Form>
     </Container>
   );
