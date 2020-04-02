@@ -1,17 +1,18 @@
 import React from 'react';
-import { BrowserRouter, Switch } from 'react-router-dom';
+import { Router, Switch } from 'react-router-dom';
 
 import Deliveries from '~/pages/Deliveries';
 import Login from '~/pages/Login';
 import Route from './Route';
+import history from '~/services/history';
 
 export default function Routes() {
   return (
-    <BrowserRouter>
+    <Router history={history}>
       <Switch>
         <Route path="/" exact component={Login} />
         <Route path="/deliveries" component={Deliveries} isPrivate />
       </Switch>
-    </BrowserRouter>
+    </Router>
   );
 }
