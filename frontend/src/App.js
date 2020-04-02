@@ -1,4 +1,5 @@
 import React from 'react';
+import { ToastContainer } from 'react-toastify';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
@@ -14,6 +15,7 @@ function App() {
       <PersistGate persistor={persistor}>
         <Routes />
         <GlobalStyle />
+        <ToastContainer autoClose={3000} />
       </PersistGate>
     </Provider>
   );
