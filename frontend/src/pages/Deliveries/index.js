@@ -4,8 +4,11 @@ import { FiPlus } from 'react-icons/fi';
 import { Content, Tools } from './styles';
 import { DefaultButton } from '~/components/Buttons/styles';
 import SearchInput from '~/components/Form/SearchInput';
+import api from '~/services/api';
 
 export default function Deliveries() {
+  api.get('/deliveries');
+
   return (
     <Content>
       <h1>Gerenciando encomendas</h1>
