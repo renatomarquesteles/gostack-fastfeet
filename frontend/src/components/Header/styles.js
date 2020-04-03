@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { darken } from 'polished';
 
 export const Container = styled.header`
   width: 100%;
@@ -43,6 +44,10 @@ export const ListItem = styled.li`
     font-size: 15px;
     font-weight: bold;
   }
+
+  &:hover {
+    opacity: 1;
+  }
 `;
 
 export const Divider = styled.div`
@@ -63,7 +68,14 @@ export const Profile = styled.div`
     font-weight: bold;
   }
 
-  a {
+  button {
+    background: transparent;
+    border: 0;
     color: #de3b3b;
+
+    &:hover {
+      color: ${darken(0.08, '#de3b3b')};
+      text-decoration: underline;
+    }
   }
 `;
