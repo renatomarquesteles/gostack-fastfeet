@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FiPlus } from 'react-icons/fi';
 import { MdDelete, MdModeEdit, MdRemoveRedEye } from 'react-icons/md';
 
-import api from '~/services/api';
 import Actions from '~/components/Actions';
 import { DefaultButton } from '~/components/Buttons/styles';
+import Modal from '~/components/Modal';
 import SearchInput from '~/components/Form/SearchInput';
 import { Table } from '~/components/Table/styles';
-import { Action, Avatar, Content, Status, Tools } from './styles';
+import { Action, Avatar, Content, ModalInfo, Status, Tools } from './styles';
 
 export default function Deliveries() {
-  api.get('/deliveries');
+  const [modalIsOpen, setModalOpen] = useState(false);
 
   return (
     <Content>
@@ -142,6 +142,35 @@ export default function Deliveries() {
           </tr>
         </tbody>
       </Table>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={() => setModalOpen(false)}
+        modalWidth={450}
+        modalHeight={400}
+      >
+        <ModalInfo>
+          <h3>Informações da encomenda</h3>
+          <span>Rua Beethoven, 1729</span>
+          <span>Diadema - SP</span>
+          <span>09960-580</span>
+          <hr />
+          <h3>Datas</h3>
+          <span>
+            <strong>Retirada:</strong>
+            25/01/2020
+          </span>
+          <span>
+            <strong>Entrega:</strong>
+            25/01/2020
+          </span>
+          <hr />
+          <h3>Assinatura do Destinatário</h3>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Assinatura_Maria_Pia_de_Sab%C3%B3ia.svg"
+            alt="Assinatura do Destinatário"
+          />
+        </ModalInfo>
+      </Modal>
     </Content>
   );
 }

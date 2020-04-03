@@ -97,3 +97,34 @@ export const Action = styled.div`
     background: ${darken(0.1, '#fff')};
   }
 `;
+
+export const ModalInfo = styled.div`
+  h3 {
+    color: #444;
+    font-size: 14px;
+    margin-bottom: 7px;
+  }
+
+  strong,
+  span {
+    line-height: 20px;
+    color: #666;
+  }
+
+  hr {
+    margin: 10px 0;
+  }
+
+  span {
+    display: block;
+  }
+
+  strong {
+    margin-right: 5px;
+  }
+
+  img {
+    max-width: 350px;
+    margin-top: 10px;
+  }
+`;
