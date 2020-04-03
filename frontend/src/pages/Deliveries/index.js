@@ -1,11 +1,13 @@
 import React from 'react';
-import { FiMoreHorizontal, FiPlus } from 'react-icons/fi';
+import { FiPlus } from 'react-icons/fi';
+import { MdDelete, MdModeEdit, MdRemoveRedEye } from 'react-icons/md';
 
+import api from '~/services/api';
+import Actions from '~/components/Actions';
 import { DefaultButton } from '~/components/Buttons/styles';
 import SearchInput from '~/components/Form/SearchInput';
-import api from '~/services/api';
 import { Table } from '~/components/Table/styles';
-import { Avatar, Content, Status, Tools } from './styles';
+import { Action, Avatar, Content, Status, Tools } from './styles';
 
 export default function Deliveries() {
   api.get('/deliveries');
@@ -52,7 +54,20 @@ export default function Deliveries() {
               </Status>
             </td>
             <td>
-              <FiMoreHorizontal size={18} color="#8c8c8c" />
+              <Actions>
+                <Action>
+                  <MdRemoveRedEye color="#8e5be8" />
+                  Visualizar
+                </Action>
+                <Action>
+                  <MdModeEdit color="#4d85ee" />
+                  Editar
+                </Action>
+                <Action>
+                  <MdDelete color="#de3b3b" />
+                  Excluir
+                </Action>
+              </Actions>
             </td>
           </tr>
           <tr>
@@ -74,7 +89,20 @@ export default function Deliveries() {
               </Status>
             </td>
             <td>
-              <FiMoreHorizontal size={18} color="#8c8c8c" />
+              <Actions>
+                <Action>
+                  <MdRemoveRedEye color="#8e5be8" />
+                  Visualizar
+                </Action>
+                <Action>
+                  <MdModeEdit color="#4d85ee" />
+                  Editar
+                </Action>
+                <Action>
+                  <MdDelete color="#de3b3b" />
+                  Excluir
+                </Action>
+              </Actions>
             </td>
           </tr>
           <tr>
@@ -96,7 +124,20 @@ export default function Deliveries() {
               </Status>
             </td>
             <td>
-              <FiMoreHorizontal size={18} color="#8c8c8c" />
+              <Actions>
+                <Action>
+                  <MdRemoveRedEye color="#8e5be8" />
+                  Visualizar
+                </Action>
+                <Action>
+                  <MdModeEdit color="#4d85ee" />
+                  Editar
+                </Action>
+                <Action>
+                  <MdDelete color="#de3b3b" />
+                  Excluir
+                </Action>
+              </Actions>
             </td>
           </tr>
         </tbody>

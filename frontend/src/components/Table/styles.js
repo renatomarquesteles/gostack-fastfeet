@@ -15,6 +15,7 @@ export const Table = styled.table`
         min-height: 60px;
         font-size: 16px;
         margin-right: 5px;
+        color: #444;
 
         display: flex;
         align-items: center;
@@ -40,6 +41,7 @@ export const Table = styled.table`
         min-height: 60px;
         font-size: 16px;
         margin-right: 5px;
+        color: #666;
 
         display: flex;
         align-items: center;

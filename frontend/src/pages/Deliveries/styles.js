@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { darken } from 'polished';
 
 const handleStatusBackground = (status) => {
   switch (status) {
@@ -10,6 +11,7 @@ const handleStatusBackground = (status) => {
       return '#F0F0DF';
     case 'withdrawal':
       return '#BAD2FF';
+    default:
   }
 };
 
@@ -23,6 +25,7 @@ const handleStatusColor = (status) => {
       return '#C1BC35';
     case 'withdrawal':
       return '#4D85EE';
+    default:
   }
 };
 
@@ -71,5 +74,26 @@ export const Status = styled.div`
     border-radius: 50%;
     background-color: ${(props) => handleStatusColor(props.status)};
     margin-right: 5px;
+  }
+`;
+
+export const Action = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  color: #666;
+  cursor: pointer;
+  transition: background 0.3s;
+
+  svg {
+    margin-right: 8px;
+  }
+
+  &:not(:first-child) {
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+  }
+
+  &:hover {
+    background: ${darken(0.1, '#fff')};
   }
 `;
