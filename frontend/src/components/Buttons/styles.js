@@ -20,12 +20,13 @@ export const DefaultButton = styled.button`
   background: ${colors.primary};
   border: 0;
   border-radius: 4px;
-  padding: 0 10px;
+  padding: 0 15px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   transition: background 0.2s;
+  text-transform: uppercase;
 
   &:hover {
     background: ${darken(0.04, colors.primary)};
@@ -42,4 +43,12 @@ export const DefaultButton = styled.button`
         animation: ${rotate} 2s linear infinite;
       }
     `}
+`;
+
+export const SecondaryButton = styled(DefaultButton)`
+  background: ${colors.secondary};
+
+  &:hover {
+    background: ${darken(0.04, colors.secondary)};
+  }
 `;
