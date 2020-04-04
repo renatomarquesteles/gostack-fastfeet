@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FiPlus } from 'react-icons/fi';
 import { MdDelete, MdModeEdit, MdRemoveRedEye } from 'react-icons/md';
 
@@ -17,10 +18,12 @@ export default function Deliveries() {
       <h1>Gerenciando encomendas</h1>
       <Tools>
         <SearchInput placeholder="Buscar por encomendas" />
-        <DefaultButton type="button">
-          <FiPlus size={24} color="#fff" />
-          CADASTRAR
-        </DefaultButton>
+        <Link to="/deliveries/new">
+          <DefaultButton type="button">
+            <FiPlus size={22} color="#fff" />
+            CADASTRAR
+          </DefaultButton>
+        </Link>
       </Tools>
       <Table gridTemplateColumns={'0.5fr 2fr 2fr 1fr 1fr 1fr 0.5fr'}>
         <thead>
