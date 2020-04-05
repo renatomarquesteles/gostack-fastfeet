@@ -37,12 +37,17 @@ export const Content = styled.div`
 
 export const ListItem = styled.li`
   margin-right: 15px;
-  opacity: ${(props) => (props.active ? 1 : 0.7)};
 
   a {
     color: #444;
     font-size: 15px;
     font-weight: bold;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+
+    &.active {
+      opacity: 1;
+    }
   }
 
   &:hover {

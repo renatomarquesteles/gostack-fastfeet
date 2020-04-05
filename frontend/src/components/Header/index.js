@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { signOut } from '~/store/modules/auth/actions';
 import logo from '~/assets/logo.png';
@@ -21,17 +21,17 @@ export default function Header() {
         <Divider />
         <nav>
           <ul>
-            <ListItem active>
-              <Link to="/deliveries">ENCOMENDAS</Link>
+            <ListItem>
+              <NavLink to="/deliveries">ENCOMENDAS</NavLink>
             </ListItem>
             <ListItem>
-              <Link to="/deliverymen">ENTREGADORES</Link>
+              <NavLink to="/deliverymen">ENTREGADORES</NavLink>
             </ListItem>
             <ListItem>
-              <Link to="/recipients">DESTINATÁRIOS</Link>
+              <NavLink to="/recipients">DESTINATÁRIOS</NavLink>
             </ListItem>
             <ListItem>
-              <Link to="/problems">PROBLEMAS</Link>
+              <NavLink to="/problems">PROBLEMAS</NavLink>
             </ListItem>
           </ul>
         </nav>
