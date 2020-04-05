@@ -47,7 +47,12 @@ export default function NewDeliveryman() {
           </InputWrapper>
           <InputWrapper>
             <label htmlFor="email">E-mail</label>
-            <Input id="email" name="email" placeholder="example@fastfeet.com" />
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="example@fastfeet.com"
+            />
           </InputWrapper>
         </FormContainer>
       </Form>

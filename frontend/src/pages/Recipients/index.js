@@ -9,7 +9,7 @@ import SearchInput from '~/components/Form/SearchInput';
 import { Table } from '~/components/Table/styles';
 import { Action, Content, Tools } from './styles';
 
-export default function Deliverymen() {
+export default function Recipient() {
   return (
     <Content>
       <h1>Gerenciando destinatários</h1>
