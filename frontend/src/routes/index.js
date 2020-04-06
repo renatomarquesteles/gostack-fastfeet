@@ -7,6 +7,7 @@ import Login from '~/pages/Login';
 import NewDelivery from '~/pages/NewDelivery';
 import NewDeliveryman from '~/pages/NewDeliveryman';
 import NewRecipient from '~/pages/NewRecipient';
+import Problems from '~/pages/Problems';
 import Recipients from '~/pages/Recipients';
 import Route from './Route';
 import history from '~/services/history';
@@ -22,6 +23,7 @@ export default function Routes() {
         <Route path="/deliverymen/new" component={NewDeliveryman} isPrivate />
         <Route path="/recipients" exact component={Recipients} isPrivate />
         <Route path="/recipients/new" component={NewRecipient} isPrivate />
+        <Route path="/problems" exact component={Problems} isPrivate />
       </Switch>
     </Router>
   );
