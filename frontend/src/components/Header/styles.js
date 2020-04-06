@@ -1,14 +1,5 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { darken } from 'polished';
-
-const expand = keyframes`
-  from {
-    transform: translateX(-200px);
-  }
-  to {
-    transform: translateX(0);
-  }
-`;
 
 export const Container = styled.header`
   width: 100%;
