@@ -5,13 +5,7 @@ import { Form } from '@unform/web';
 
 import { DefaultButton, SecondaryButton } from '~/components/Buttons/styles';
 import Input from '~/components/Input';
-import {
-  ButtonGroup,
-  Container,
-  FormContainer,
-  Header,
-  InputWrapper,
-} from './styles';
+import { ButtonGroup, Container, FormContainer, Header } from './styles';
 
 export default function NewRecipient() {
   const formRef = useRef(null);
@@ -39,38 +33,33 @@ export default function NewRecipient() {
           </ButtonGroup>
         </Header>
         <FormContainer>
-          <InputWrapper>
-            <label htmlFor="name">Nome</label>
-            <Input id="name" name="name" placeholder="Ludwig van Beethoven" />
-          </InputWrapper>
-          <InputWrapper>
-            <label htmlFor="email">Rua</label>
-            <Input id="email" name="email" placeholder="Rua Beethoven" />
-          </InputWrapper>
-          <InputWrapper>
-            <label htmlFor="number">Número</label>
-            <Input id="number" name="house_number" placeholder="9999" />
-          </InputWrapper>
-          <InputWrapper>
-            <label htmlFor="complement">Complemento</label>
-            <Input
-              id="complement"
-              name="complement"
-              placeholder="Informações adicionais"
-            />
-          </InputWrapper>
-          <InputWrapper>
-            <label htmlFor="city">Cidade</label>
-            <Input id="city" name="city" placeholder="Franca" />
-          </InputWrapper>
-          <InputWrapper>
-            <label htmlFor="state">Estado</label>
-            <Input id="state" name="state" placeholder="São Paulo" />
-          </InputWrapper>
-          <InputWrapper>
-            <label htmlFor="zip">CEP</label>
-            <Input id="zip" name="zip" placeholder="99999-999" />
-          </InputWrapper>
+          <Input
+            id="name"
+            name="name"
+            label="Nome"
+            placeholder="Ludwig van Beethoven"
+          />
+          <Input id="rua" name="rua" label="Rua" placeholder="Rua Beethoven" />
+          <Input
+            id="number"
+            name="house_number"
+            label="Número"
+            placeholder="9999"
+          />
+          <Input
+            id="complement"
+            name="complement"
+            label="Complemento"
+            placeholder="Informações adicionais"
+          />
+          <Input id="city" name="city" label="Cidade" placeholder="Franca" />
+          <Input
+            id="state"
+            name="state"
+            label="Estado"
+            placeholder="São Paulo"
+          />
+          <Input id="zip" name="zip" label="CEP" placeholder="99999-999" />
         </FormContainer>
       </Form>
     </Container>

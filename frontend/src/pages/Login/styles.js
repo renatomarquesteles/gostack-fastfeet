@@ -9,14 +9,11 @@ export const Container = styled.div`
     margin-top: 30px;
 
     label {
-      margin: 5px 0;
       font-size: 12px;
-      font-weight: bold;
-      color: #444;
     }
 
     button {
-      margin: 5px 0 0;
+      margin: 20px 0 0;
       height: 44px;
     }
   }

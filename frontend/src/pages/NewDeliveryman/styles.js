@@ -35,16 +35,3 @@ export const FormContainer = styled.div`
   border-radius: 4px;
   padding: 25px 30px;
 `;
-
-export const InputWrapper = styled.div`
-  width: 100%;
-  margin-top: 15px;
-
-  label {
-    font-weight: bold;
-  }
-
-  input {
-    margin-top: 6px;
-  }
-`;

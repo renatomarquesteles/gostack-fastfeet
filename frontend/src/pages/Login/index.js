@@ -52,18 +52,18 @@ export default function Login() {
       <img src={logo} alt="FastFeet" />
 
       <Form ref={formRef} onSubmit={handleSubmit}>
-        <label htmlFor="email">SEU E-MAIL</label>
         <Input
           id="email"
           name="email"
           type="email"
+          label="SEU E-MAIL"
           placeholder="exemplo@email.com"
         />
-        <label htmlFor="password">SUA SENHA</label>
         <Input
           id="password"
           name="password"
           type="password"
+          label="SUA SENHA"
           placeholder="********"
         />
         <DefaultButton loading={loading} type="submit">

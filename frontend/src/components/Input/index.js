@@ -3,7 +3,7 @@ import { useField } from '@unform/core';
 
 import { ErrorMessage, InputContainer } from './styles';
 
-export default function Input({ name, ...rest }) {
+export default function Input({ name, label, ...rest }) {
   const inputRef = useRef(null);
   const { fieldName, defaultValue = '', registerField, error } = useField(name);
 
@@ -17,7 +17,8 @@ export default function Input({ name, ...rest }) {
 
   return (
     <InputContainer error={error}>
-      <input ref={inputRef} defaultValue={defaultValue} {...rest} />
+      <label htmlFor={name}>{label}</label>
+      <input id={name} ref={inputRef} defaultValue={defaultValue} {...rest} />
       {error && <ErrorMessage>{error}</ErrorMessage>}
     </InputContainer>
   );

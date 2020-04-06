@@ -11,7 +11,6 @@ import {
   Container,
   FormContainer,
   Header,
-  InputWrapper,
   SelectGroup,
   SelectWrapper,
 } from './styles';
@@ -70,14 +69,12 @@ export default function NewDelivery() {
               <Select options={deliverymen} name="deliveryman" />
             </SelectWrapper>
           </SelectGroup>
-          <InputWrapper>
-            <label htmlFor="product">Nome do produto</label>
-            <Input
-              id="product"
-              name="product"
-              placeholder="Digite o nome do produto"
-            />
-          </InputWrapper>
+          <Input
+            id="product"
+            name="product"
+            label="Nome do produto"
+            placeholder="Digite o nome do produto"
+          />
         </FormContainer>
       </Form>
     </Container>
