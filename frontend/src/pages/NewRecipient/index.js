@@ -5,7 +5,13 @@ import { Form } from '@unform/web';
 
 import { DefaultButton, SecondaryButton } from '~/components/Buttons/styles';
 import Input from '~/components/Input';
-import { ButtonGroup, Container, FormContainer, Header } from './styles';
+import {
+  ButtonGroup,
+  Container,
+  FlexContainer,
+  FormContainer,
+  Header,
+} from './styles';
 
 export default function NewRecipient() {
   const formRef = useRef(null);
@@ -39,27 +45,46 @@ export default function NewRecipient() {
             label="Nome"
             placeholder="Ludwig van Beethoven"
           />
-          <Input id="rua" name="rua" label="Rua" placeholder="Rua Beethoven" />
-          <Input
-            id="number"
-            name="house_number"
-            label="Número"
-            placeholder="9999"
-          />
-          <Input
-            id="complement"
-            name="complement"
-            label="Complemento"
-            placeholder="Informações adicionais"
-          />
-          <Input id="city" name="city" label="Cidade" placeholder="Franca" />
-          <Input
-            id="state"
-            name="state"
-            label="Estado"
-            placeholder="São Paulo"
-          />
-          <Input id="zip" name="zip" label="CEP" placeholder="99999-999" />
+          <FlexContainer>
+            <Input
+              id="rua"
+              name="rua"
+              label="Rua"
+              placeholder="Rua Beethoven"
+            />
+            <FlexContainer>
+              <Input
+                id="number"
+                name="house_number"
+                label="Número"
+                mask="9999"
+                placeholder="9999"
+              />
+              <Input
+                id="complement"
+                name="complement"
+                label="Complemento"
+                placeholder="Informações adicionais"
+              />
+            </FlexContainer>
+          </FlexContainer>
+          <FlexContainer>
+            <Input id="city" name="city" label="Cidade" placeholder="Franca" />
+            <Input
+              id="state"
+              name="state"
+              label="Estado"
+              placeholder="São Paulo"
+            />
+            <Input
+              id="zip"
+              name="zip"
+              label="CEP"
+              mask="99999-999"
+              maskPlaceholder="_"
+              placeholder="99999-999"
+            />
+          </FlexContainer>
         </FormContainer>
       </Form>
     </Container>

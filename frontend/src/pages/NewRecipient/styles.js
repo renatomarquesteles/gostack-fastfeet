@@ -33,5 +33,23 @@ export const FormContainer = styled.div`
   width: 100%;
   background: #fff;
   border-radius: 4px;
-  padding: 25px 30px;
+  padding: 10px 30px 25px;
+`;
+
+export const FlexContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  > div {
+    width: 100%;
+    margin-right: 10px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  @media (max-width: 960px) {
+    flex-direction: column;
+  }
 `;
