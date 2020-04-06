@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { FiMenu } from 'react-icons/fi';
 
 import { signOut } from '~/store/modules/auth/actions';
 import logo from '~/assets/logo.png';
@@ -20,6 +21,7 @@ export default function Header() {
         <img src={logo} alt="FastFeet" />
         <Divider />
         <nav>
+          <FiMenu size={26} color="#7d40e7" />
           <ul>
             <ListItem>
               <NavLink to="/deliveries">ENCOMENDAS</NavLink>
