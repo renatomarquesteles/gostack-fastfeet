@@ -13,8 +13,8 @@ export const Badge = styled.button`
 export const ActionsList = styled.div`
   position: absolute;
   z-index: 1;
-  width: 150px;
-  left: calc(50% - 75px);
+  width: ${(props) => props.width}px;
+  left: calc(50% - ${(props) => props.width / 2}px);
   background: #fff;
   border-radius: 4px;
   border: 1px solid rgba(0, 0, 0, 0.15);
@@ -31,5 +31,18 @@ export const ActionsList = styled.div`
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     border-bottom: 8px solid #888;
+  }
+
+  @media (max-width: 960px) {
+    top: -25px;
+    left: ${(props) => -props.width - 7}px;
+
+    &::before {
+      top: 25px;
+      left: 100%;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-left: 8px solid #888;
+    }
   }
 `;
